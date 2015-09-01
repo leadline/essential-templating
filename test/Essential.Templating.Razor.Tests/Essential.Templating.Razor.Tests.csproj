@@ -128,6 +128,7 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="Helpers\Person.cs" />
     <Compile Include="Helpers\TemplateStructure.cs" />
     <Compile Include="Helpers\TemplateStructureRenderer.cs" />
     <Compile Include="Helpers\TemplateStructureVisitor.cs" />
@@ -176,6 +177,12 @@
     <EmbeddedResource Include="Templates\Embedded\CommonLayout.cshtml" />
     <EmbeddedResource Include="Templates\Embedded\WithLayout.cshtml" />
     <EmbeddedResource Include="Templates\Embedded\WithLayout.ru.cshtml" />
+    <None Include="Templates\Hello.cshtml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\LayoutWithModel.cshtml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">

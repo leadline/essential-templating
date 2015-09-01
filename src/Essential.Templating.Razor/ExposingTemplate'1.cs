@@ -13,5 +13,10 @@ namespace Essential.Templating.Razor
         }
 
         public T Model { get; set; }
+
+        protected override object GetModel()
+        {
+            return Model;
+        }
     }
 }

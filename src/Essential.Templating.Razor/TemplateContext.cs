@@ -45,14 +45,14 @@ namespace Essential.Templating.Razor
             get { return (IResourceProvider) _environment[Keys.ResourceProvider]; }
         }
 
-        public Template Resolve(string path, CultureInfo culture, IDictionary<string, object> contextEnvironment)
+        public Template Resolve(string path, CultureInfo culture, IDictionary<string, object> contextEnvironment, object model)
         {
-            return TemplateTool.Resolve(path, culture, contextEnvironment);
+            return TemplateTool.Resolve(path, culture, model, contextEnvironment);
         }
 
-        public Template Resolve(string path, CultureInfo culture)
+        public Template Resolve(string path, CultureInfo culture, object model)
         {
-            return TemplateTool.Resolve(path, culture);
+            return TemplateTool.Resolve(path, culture,  model);
         }
 
         public T AddOrGetExisting<T>(string key, Func<T> constructor)

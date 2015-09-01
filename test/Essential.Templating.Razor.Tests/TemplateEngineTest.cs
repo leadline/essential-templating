@@ -119,5 +119,20 @@ namespace Essential.Templating.Razor.Tests
             Assert.IsTrue(templateInvariant.Contains("English"));
             Assert.IsTrue(templateRu.Contains("русском"));
         }
+
+        [TestMethod]
+        public void RenderTemplateWithModel_PassesModelToLayout_AndRendersCorrectText()
+        {
+            var model = new Person
+            {
+                FirstName = "John",
+                LastName = "Doe",
+                Age = 36
+            };
+            var result = _fileSystemTemplateEngine.Render("Hello.cshtml", viewBag: null, model: model);
+
+            Assert.IsTrue(result.Contains("Hello, John Doe!"));
+            Assert.IsTrue(result.Contains("The person's age is 36"));
+        }
     }
 }

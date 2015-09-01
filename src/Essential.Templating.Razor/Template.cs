@@ -61,7 +61,7 @@ namespace Essential.Templating.Razor
             {
                 return null;
             }
-            var layout = _templateContext.Resolve(name, Culture);
+            var layout = _templateContext.Resolve(name, Culture, GetModel());
             if (layout == null)
             {
                 throw new InvalidOperationException("Layout template was not found.");
@@ -77,12 +77,17 @@ namespace Essential.Templating.Razor
             {
                 return null;
             }
-            var layout = _templateContext.Resolve(name, Culture, contextEnvironment);
+            var layout = _templateContext.Resolve(name, Culture, contextEnvironment, model:GetModel());
             if (layout == null)
             {
                 throw new InvalidOperationException("Layout template was not found.");
             }
             return layout;
+        }
+
+        protected virtual object GetModel()
+        {
+            return null;
         }
 
         protected Stream GetResource(string uri, CultureInfo culture = null)
